@@ -41,7 +41,7 @@ CoordMapType.prototype.getTile = function(coord, zoom, ownerDocument) {
 var solarTypeOptions = {
   getTileUrl: function(coord, zoom) {
     var bound = Math.pow(2, zoom);
-    return "https://raw.github.com/ahlstrom/EnergiatietoSolar/master/mapTiles" + "/" + zoom + "/" + coord.x + "/" + (bound - coord.y - 1) + ".png";
+    return "https://raw.github.com/ahlstrom/EnergiatietoSolar/master/mapTIles" + "/" + zoom + "/" + coord.x + "/" + (bound - coord.y - 1) + ".png";
   },
   tileSize: new google.maps.Size(256, 256),
   maxZoom: 20,
@@ -83,7 +83,7 @@ var grayStyle = [
 
 var mapOptions = {
   center: espoo,
-  zoom: 16,
+  zoom: 12,
   disableDefaultUI: true,
   panControl: false,
   zoomControl: true,
@@ -91,7 +91,7 @@ var mapOptions = {
   scaleControl: true,
   streetViewControl: false,
   overviewMapControl: false,
-  mapTypeId: google.maps.MapTypeId.SATELLITE,
+  mapTypeId: google.maps.MapTypeId.ROADMAP,
   styles: grayStyle
 };
 
@@ -100,7 +100,7 @@ function initialize() {
 	var solarMapType = new google.maps.ImageMapType(solarTypeOptions); 
 	
   map.overlayMapTypes.insertAt(0,solarMapType);
-  map.overlayMapTypes.insertAt(1, new CoordMapType(new google.maps.Size(256, 256))); /* For debugging, if necessary. */
+  //map.overlayMapTypes.insertAt(1, new CoordMapType(new google.maps.Size(256, 256))); /* For debugging, if necessary. */
 }
 
 
